@@ -9,13 +9,13 @@ const projects = [
     title: "Loan Chat",
     description:
       "Automate loan pre-qualification, risk assessment, and document checks using conversational AI.",
-    link: "https://example.com/loan-ai-agent",
+    link: "https://admirable-semolina-6026a9.netlify.app/",
   },
   {
     title: "Web Search Agent",
     description:
       "Two-way, automated WhatsApp support for FAQs, lead capture, and order updates with smart routing.",
-    link: "https://example.com/whatsapp-agent",
+    link: "https://ai-web-search-agent.netlify.app/",
   },
   {
     title: "Face Vital Monitor",
@@ -33,7 +33,7 @@ const projects = [
     title: "Show room Assistant agent",
     description:
       "Image-driven scalp analysis to detect shedding patterns and recommend evidence-based routines.",
-    link: "https://example.com/showroom-assistant",
+    link: "https://adisales-agent.netlify.app/",
   },
 ];
 
