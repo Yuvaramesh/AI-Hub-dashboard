@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Web Search Agent",
     description:
-      "Two-way, automated WhatsApp support for FAQs, lead capture, and order updates with smart routing.",
+      "AI-powered web assistant that retrieves, summarizes, and presents web information intelligently for user queries.",
     link: "https://ai-web-search-agent.netlify.app/",
   },
   {
@@ -26,7 +26,7 @@ const projects = [
   {
     title: "Show room Assistant agent",
     description:
-      "Image-driven scalp analysis to detect shedding patterns and recommend evidence-based routines.",
+      "Conversational AI assistant designed for showrooms to engage customers, recommend products, and answer FAQs.",
     link: "https://adisales-agent.netlify.app/",
   },
   {
