@@ -1,103 +1,97 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import Logo from "../../public/image.png";
 
-export default function Home() {
+const projects = [
+  {
+    title: "Loan Chat",
+    description:
+      "Automate loan pre-qualification, risk assessment, and document checks using conversational AI.",
+    link: "https://example.com/loan-ai-agent",
+  },
+  {
+    title: "Web Search Agent",
+    description:
+      "Two-way, automated WhatsApp support for FAQs, lead capture, and order updates with smart routing.",
+    link: "https://example.com/whatsapp-agent",
+  },
+  {
+    title: "Face Vital Monitor",
+    description:
+      "Camera-based vitals estimation and trend tracking with privacy-first processing and insights.",
+    link: "https://github.com/Yuvaramesh/Face-Vital-Streamlit/tree/Testing",
+  },
+  {
+    title: "Hair Loss Analyser",
+    description:
+      "Image-driven scalp analysis to detect shedding patterns and recommend evidence-based routines.",
+    link: "https://hairanalyser.streamlit.app/",
+  },
+  {
+    title: "Show room Assistant agent",
+    description:
+      "Image-driven scalp analysis to detect shedding patterns and recommend evidence-based routines.",
+    link: "https://example.com/showroom-assistant",
+  },
+];
+
+export default function Page() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <main className="min-h-screen bg-black text-white px-10 py-10">
+      {/* Header aligned to top-left */}
+      <header className="flex items-center gap-4 mb-12">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src={Logo}
+          alt="10QBIT Logo"
+          width={160}
+          height={55}
+          className="rounded-lg"
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <h1 className="text-3xl font-bold text-green-400 tracking-tight">
+          AI Hub Dashboard
+        </h1>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+      {/* Grid of Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-start">
+        {projects.map((p) => (
+          <Link
+            key={p.title}
+            href={p.link}
             target="_blank"
             rel="noopener noreferrer"
+            className="group"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <div className="relative border-2 border-green-500 rounded-2xl p-6 bg-black hover:bg-[#0f0f0f] transition-all duration-300 hover:shadow-[0_0_15px_#00ff88] hover:scale-[1.02] w-[340px] h-[220px] flex flex-col justify-between">
+              {/* Watermark Logo */}
+              <div className="absolute top-3 right-3 opacity-10 group-hover:opacity-20 transition-all">
+                <Image
+                  src={Logo}
+                  alt="10QBIT"
+                  width={80}
+                  height={30}
+                  className="pointer-events-none select-none"
+                />
+              </div>
+
+              {/* Card Content */}
+              <div>
+                <h2 className="text-lg font-semibold text-green-400 mb-2 group-hover:text-green-300">
+                  {p.title}
+                </h2>
+                <p className="text-sm text-white leading-relaxed">
+                  {p.description}
+                </p>
+              </div>
+
+              {/* Animated Footer Line */}
+              <div className="mt-3 h-[2px] w-1/3 bg-green-500 group-hover:w-1/2 transition-all duration-300"></div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </main>
   );
 }
