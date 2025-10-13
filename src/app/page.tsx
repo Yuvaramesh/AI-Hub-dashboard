@@ -18,12 +18,6 @@ const projects = [
     link: "https://ai-web-search-agent.netlify.app/",
   },
   {
-    title: "Face Vital Monitor",
-    description:
-      "Camera-based vitals estimation and trend tracking with privacy-first processing and insights.",
-    link: "https://github.com/Yuvaramesh/Face-Vital-Streamlit/tree/Testing",
-  },
-  {
     title: "Hair Loss Analyser",
     description:
       "Image-driven scalp analysis to detect shedding patterns and recommend evidence-based routines.",
@@ -34,6 +28,12 @@ const projects = [
     description:
       "Image-driven scalp analysis to detect shedding patterns and recommend evidence-based routines.",
     link: "https://adisales-agent.netlify.app/",
+  },
+  {
+    title: "Face Vital Monitor",
+    description:
+      "Camera-based vitals estimation and trend tracking with privacy-first processing and insights.",
+    link: "https://github.com/Yuvaramesh/Face-Vital-Streamlit/tree/Testing",
   },
 ];
 
