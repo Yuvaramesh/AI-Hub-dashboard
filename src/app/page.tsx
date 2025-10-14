@@ -40,7 +40,7 @@ const projects = [
   },
 ];
 
-export default function Page() {
+export default function Dashboard() {
   return (
     <main className="relative min-h-screen bg-black text-white overflow-hidden">
       {/* 🌟 Foreground Content */}

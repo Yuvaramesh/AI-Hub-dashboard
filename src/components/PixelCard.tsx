@@ -188,15 +188,22 @@ export default function PixelCard({
     null
   );
   const timePreviousRef = useRef(performance.now());
-  const reducedMotion = useRef(
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ).current;
+  const reducedMotion = useRef(false);
 
   const variantCfg: VariantConfig = VARIANTS[variant] || VARIANTS.default;
   const finalGap = gap ?? variantCfg.gap;
   const finalSpeed = speed ?? variantCfg.speed;
   const finalColors = colors ?? variantCfg.colors;
   const finalNoFocus = noFocus ?? variantCfg.noFocus;
+
+  // Initialize reducedMotion on client side only
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      reducedMotion.current = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+    }
+  }, []);
 
   const initPixels = () => {
     if (!containerRef.current || !canvasRef.current) return;
@@ -221,7 +228,7 @@ export default function PixelCard({
         const dx = x - width / 2;
         const dy = y - height / 2;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const delay = reducedMotion ? 0 : distance;
+        const delay = reducedMotion.current ? 0 : distance;
         if (!ctx) return;
         pxs.push(
           new Pixel(
@@ -230,7 +237,7 @@ export default function PixelCard({
             x,
             y,
             color,
-            getEffectiveSpeed(finalSpeed, reducedMotion),
+            getEffectiveSpeed(finalSpeed, reducedMotion.current),
             delay
           )
         );
@@ -305,7 +312,7 @@ export default function PixelCard({
   return (
     <div
       ref={containerRef}
-      className={`pixel-card ${className}`}
+      className={`pixel-card z-50 ${className}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onFocus={finalNoFocus ? undefined : onFocus}
