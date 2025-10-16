@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../public/image.png";
 import LightRays from "../components/LightRays";
-import Ribbons from "../components/Ribbons";
-import PixelCard from "../components/PixelCard"; // ✅ using PixelCard
+import PixelCard from "../components/PixelCard";
 
 const projects = [
   {
@@ -38,6 +37,12 @@ const projects = [
       "Camera-based vitals estimation and trend tracking with privacy-first processing and insights.",
     link: "https://github.com/Yuvaramesh/Face-Vital-Streamlit/tree/Testing",
   },
+  {
+    title: "AI Receptionist Agent",
+    description:
+      "An intelligent conversational AI receptionist that greets visitors, engages customers, answers FAQs, and recommends products or services in real time.",
+    link: "https://10qbit-ai-receptionist.netlify.app/",
+  },
 ];
 
 export default function Dashboard() {
@@ -58,26 +63,17 @@ export default function Dashboard() {
               zIndex: 1,
               pointerEvents: "none",
             }}
-          >
-            <Ribbons
-              baseThickness={30}
-              colors={["#00ff88", "#FFD700"]} // green + golden
-              speedMultiplier={0.5}
-              maxAge={500}
-              enableFade={false}
-              enableShaderEffect={true}
-            />
-          </div>
+          ></div>
 
           {/* 💫 Light Rays Above Title */}
           <div
             style={{
               position: "absolute",
-              top: "-120px",
-              left: "0",
-              width: "100%",
-              height: "250px",
-              zIndex: 2,
+              top: "-100px",
+              left: "-17%",
+              width: "70%",
+              height: "130px",
+              zIndex: 10,
               pointerEvents: "none",
             }}
           >

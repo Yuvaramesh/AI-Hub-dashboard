@@ -39,7 +39,7 @@ class Pixel {
     this.color = color;
     this.speed = this.getRandomValue(0.1, 0.9) * speed;
     this.size = 0;
-    this.sizeStep = Math.random() * 0.4;
+    this.sizeStep = Math.random() * 0.2;
     this.minSize = 0.5;
     this.maxSizeInteger = 2;
     this.maxSize = this.getRandomValue(this.minSize, this.maxSizeInteger);
@@ -142,7 +142,7 @@ const VARIANTS = {
     activeColor: "#d4cfb0",
     gap: 3,
     speed: 20,
-    colors: "#d4cfb0,#bbd6b2,#59c930",
+    colors: "#7f827e,#7f827e,#7f827e",
     noFocus: false,
   },
   pink: {

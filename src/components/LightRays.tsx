@@ -71,8 +71,8 @@ const LightRays: React.FC<LightRaysProps> = ({
   raysOrigin = "top-center",
   raysColor = DEFAULT_COLOR,
   raysSpeed = 1,
-  lightSpread = 1,
-  rayLength = 2,
+  lightSpread = 0.4,
+  rayLength = 1,
   pulsating = false,
   fadeDistance = 1.0,
   saturation = 1.0,
@@ -228,6 +228,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   }
 
   float brightness = 1.0 - (coord.y / iResolution.y);
+  float opacity = 0.85;
   fragColor.x *= 0.1 + brightness * 0.8;
   fragColor.y *= 0.3 + brightness * 0.6;
   fragColor.z *= 0.5 + brightness * 0.5;
@@ -291,7 +292,9 @@ void main() {
         uniforms.iResolution.value = [w, h];
 
         const { anchor, dir } = getAnchorAndDir(raysOrigin, w, h);
-        uniforms.rayPos.value = anchor;
+        // 🔥 Apply vertical offset to move rays higher
+        const offsetY = h * 0.08;
+        uniforms.rayPos.value = [anchor[0], anchor[1] - offsetY];
         uniforms.rayDir.value = dir;
       };
 
@@ -386,6 +389,7 @@ void main() {
     distortion,
   ]);
 
+  // 👇 Apply same offset when props update (prevents overwrite)
   useEffect(() => {
     if (!uniformsRef.current || !containerRef.current || !rendererRef.current)
       return;
@@ -406,8 +410,12 @@ void main() {
 
     const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current;
     const dpr = renderer.dpr;
-    const { anchor, dir } = getAnchorAndDir(raysOrigin, wCSS * dpr, hCSS * dpr);
-    u.rayPos.value = anchor;
+    const w = wCSS * dpr;
+    const h = hCSS * dpr;
+
+    const { anchor, dir } = getAnchorAndDir(raysOrigin, w, h);
+    const offsetY = h * 0.08; // 🔥 same upward shift
+    u.rayPos.value = [anchor[0], anchor[1] - offsetY];
     u.rayDir.value = dir;
   }, [
     raysColor,
