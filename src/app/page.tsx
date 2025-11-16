@@ -43,6 +43,12 @@ const projects = [
       "An intelligent conversational AI receptionist that greets visitors, engages customers, answers FAQs, and recommends products or services in real time.",
     link: "https://10qbit-ai-receptionist.netlify.app/",
   },
+  {
+    title: "AI RAG Application",
+    description:
+      "An advanced Retrieval-Augmented Generation (RAG) application that delivers precise, context-aware answers by combining real-time data lookup with intelligent AI responses.",
+    link: "https://10qbit-rag-app.vercel.app/",
+  },
 ];
 
 export default function Dashboard() {
